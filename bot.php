@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // BOT TOKEN
-$token = "YANGI_BOT_TOKEN";
+$token = "8504597068:AAH1Gxh5aoHgls8jVZ3boSVUUmtpLM4cPEw";
 
 // Telegram update olish
 $update = json_decode(file_get_contents("php://input"), true);
