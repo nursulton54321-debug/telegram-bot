@@ -1,14 +1,14 @@
+<?php
 // =============================================
 // FILE: bot/bot.php
 // MAQSAD: Qidiruv, PIN-kod, Moderatsiya, Backup, Tug'ilgan kunlar va Foydalanuvchilar boshqaruvi
 // =============================================
-<?php
-    
+
 require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once 'keyboards.php';
 
-define('BOT_TOKEN', '8504597068:AAH1Gxh5aoHgls8jVZ3boSVUUmtpLM4cPEw'); 
+define('BOT_TOKEN', '8504597068:AAE3X0K1STed1nVaveY8aqguUBlseEjPUqw'); 
 define('ADMIN_TG_ID', '139619338'); 
 
 function sendTelegram($method, $data) {
