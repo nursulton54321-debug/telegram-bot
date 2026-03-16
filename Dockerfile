@@ -1,10 +1,11 @@
-FROM php:8.2-cli
+FROM php:8.2-apache
 
 # MySQL extension o‘rnatish
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-WORKDIR /app
+# loyiha fayllarini containerga ko'chirish
+COPY . /var/www/html/
 
-COPY . .
+WORKDIR /var/www/html
 
-CMD ["php", "-S", "0.0.0.0:8080"]
+EXPOSE 8080
