@@ -1,25 +1,26 @@
 <?php
 
-$DB_HOST = getenv('MYSQLHOST');
-$DB_USER = getenv('MYSQLUSER');
-$DB_PASS = getenv('MYSQLPASSWORD');
-$DB_NAME = getenv('MYSQLDATABASE');
-$DB_PORT = getenv('MYSQLPORT');
+ini_set('display_errors',1);
+error_reporting(E_ALL);
 
 function dbConnect(){
 
-    global $DB_HOST,$DB_USER,$DB_PASS,$DB_NAME,$DB_PORT;
+    $host = $_ENV['MYSQLHOST'];
+    $user = $_ENV['MYSQLUSER'];
+    $pass = $_ENV['MYSQLPASSWORD'];
+    $db   = $_ENV['MYSQLDATABASE'];
+    $port = $_ENV['MYSQLPORT'];
 
     $conn = new mysqli(
-        $DB_HOST,
-        $DB_USER,
-        $DB_PASS,
-        $DB_NAME,
-        $DB_PORT
+        $host,
+        $user,
+        $pass,
+        $db,
+        $port
     );
 
-    if($conn->connect_error){
-        die("DB error: ".$conn->connect_error);
+    if ($conn->connect_error) {
+        die("Database connection error: ".$conn->connect_error);
     }
 
     $conn->set_charset("utf8mb4");
