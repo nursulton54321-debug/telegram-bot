@@ -5,11 +5,15 @@ error_reporting(E_ALL);
 
 function dbConnect(){
 
-    $host = $_ENV['MYSQLHOST'];
-    $user = $_ENV['MYSQLUSER'];
-    $pass = $_ENV['MYSQLPASSWORD'];
-    $db   = $_ENV['MYSQLDATABASE'];
-    $port = $_ENV['MYSQLPORT'];
+    $host = $_ENV['MYSQLHOST'] ?? '';
+    $user = $_ENV['MYSQLUSER'] ?? '';
+    $pass = $_ENV['MYSQLPASSWORD'] ?? '';
+    $db   = $_ENV['MYSQLDATABASE'] ?? '';
+    $port = isset($_ENV['MYSQLPORT']) ? (int)$_ENV['MYSQLPORT'] : 3306;
+
+    if(!$host || !$user || !$db){
+        die("Database ENV variables topilmadi");
+    }
 
     $conn = new mysqli(
         $host,
@@ -20,7 +24,7 @@ function dbConnect(){
     );
 
     if ($conn->connect_error) {
-        die("Database connection error: ".$conn->connect_error);
+        die("Database error: ".$conn->connect_error);
     }
 
     $conn->set_charset("utf8mb4");
