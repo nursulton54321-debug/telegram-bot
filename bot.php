@@ -4,8 +4,9 @@
 // MAQSAD: Qidiruv, PIN-kod, Moderatsiya, Backup, Tug'ilgan kunlar va Foydalanuvchilar boshqaruvi
 // =============================================
 
-require_once __DIR__ . '/../includes/config.php';
-require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/keyboards.php';
 require_once 'keyboards.php';
 
 define('BOT_TOKEN', '8504597068:AAH1Gxh5aoHgls8jVZ3boSVUUmtpLM4cPEw'); 
