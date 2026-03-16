@@ -1,11 +1,11 @@
-FROM php:8.2-apache
+FROM php:8.2-cli
 
-# MySQL extension o‘rnatish
+# MySQL extension
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# loyiha fayllarini containerga ko'chirish
-COPY . /var/www/html/
+WORKDIR /app
 
-WORKDIR /var/www/html
+COPY . .
 
-EXPOSE 8080
+# Railway port ishlatish
+CMD php -S 0.0.0.0:$PORT
